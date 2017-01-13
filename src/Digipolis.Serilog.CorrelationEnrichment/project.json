@@ -1,0 +1,25 @@
+{
+	"version": "1.0.0",
+	"description": "Correlation enricher for Serilog.",
+	"authors": [ "digipolis.be" ],
+	"packOptions": {
+        "tags": [ "Toolbox", "Serilog.CorrelationEnrichment" ],
+        "repository": {
+            "type": "git",
+            "url": ""
+        },
+        "projectUrl": "",
+        "licenseUrl": ""
+    },
+    "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "Serilog.Extensions.Logging": "1.3.1",
+        "Digipolis.Correlation": "2.0.0"
+    },
+	"frameworks": {
+        "netstandard1.6": {
+            "imports": "dnxcore50"
+        }
+    }
+}
+

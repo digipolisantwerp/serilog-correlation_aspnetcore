@@ -6,6 +6,7 @@ bower_components/
 
 .vs/
 .grunt/
+.cr/
 
 _SpecRunner.html
 

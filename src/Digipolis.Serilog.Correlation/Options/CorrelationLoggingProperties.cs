@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Digipolis.Serilog.CorrelationEnrichment
+namespace Digipolis.Serilog.Correlation
 {
     class CorrelationLoggingProperties
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 using Digipolis.Correlation;
-using Digipolis.Serilog.CorrelationEnrichment;
+using Digipolis.Serilog.Correlation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog.Core;
@@ -8,9 +8,9 @@ using Serilog.Events;
 
 namespace Digipolis.Serilog
 {
-    public class CorrelationContextEnricher : ILogEventEnricher
+    public class CorrelationEnricher : ILogEventEnricher
     {
-        public CorrelationContextEnricher(IHttpContextAccessor accessor)
+        public CorrelationEnricher(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
         }

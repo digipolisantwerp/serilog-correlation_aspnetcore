@@ -1,9 +1,9 @@
 {
 	"version": "1.0.0-*",
-	"description": "Serilog.CorrelationEnrichment Toolbox unit tests.",
+	"description": "Serilog Correlation Toolbox unit tests.",
 	"authors": [ "digipolis.be" ],
 	"packOptions": {
-        "tags": [ "Toolbox", "Serilog.CorrelationEnrichment", "Unit Tests" ],
+        "tags": [ "Toolbox", "Serilog", "Correlation", "Unit Tests", "Digipolis" ],
         "repository": {
             "type": "git",
             "url": ""
@@ -12,16 +12,17 @@
         "licenseUrl": ""
     },
 	"testRunner": "xunit",
-	"dependencies": {
-		"Digipolis.Serilog.CorrelationEnrichment": "*",
-		"NETStandard.Library": "1.6.0",
+    "dependencies": {
+        "Digipolis.Serilog.Correlation": "*",
+        "NETStandard.Library": "1.6.0",
         "Moq": "4.6.38-alpha",
         "xunit": "2.2.0-beta2-build3300",
         "dotnet-test-xunit": "2.2.0-preview2-build1029",
-		"System.Diagnostics.Process": "4.1.0-*",
+        "System.Diagnostics.Process": "4.1.0-*",
         "System.Diagnostics.TraceSource": "4.0.0-*",
-        "Microsoft.AspNetCore.Diagnostics": "1.0.0"
-	},
+        "Microsoft.AspNetCore.Diagnostics": "1.0.0",
+        "Microsoft.Extensions.DependencyInjection": "1.0.0"
+    },
     "frameworks": {
         "netcoreapp1.0": {
             "imports": [

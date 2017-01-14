@@ -7,7 +7,11 @@ Serilog Correlation enricher for Digipolis.Correlation package.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
+- [CorrelationEnricher](#correlationenricher)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Enricher](#enricher)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -51,7 +55,7 @@ The enricher adds the following fields to the Serilog LogEvent :
 
 - CorrelationId : the unique correlation id (generated at the start of a request).
 - CorrelationSourceId : unique id of the application that started the request (chain).
-- CorrelationSourceName : the name f the application that started the request (chain).
+- CorrelationSourceName : the name of the application that started the request (chain).
 - CorrelationInstanceId : the unique identification of the application's running instance that started the request (chain).
 - CorrelationInstanceName : the name of the application's running instance that started the request (chain).
 - CorrelationHostName : the name or IP address of the machine where the request (chain) was started.

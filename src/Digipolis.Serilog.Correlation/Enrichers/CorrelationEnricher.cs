@@ -20,7 +20,7 @@ namespace Digipolis.Serilog
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             var httpContext = _accessor.HttpContext;
-            var ctx = httpContext?.RequestServices?.GetRequiredService<ICorrelationContext>();
+            var ctx = httpContext?.RequestServices?.GetService<ICorrelationContext>();
             if ( ctx == null ) return;
 
             logEvent.AddOrUpdateProperty(propertyFactory.CreateProperty(CorrelationLoggingProperties.CorrelationId, ctx.Id ?? CorrelationLoggingProperties.NullValue));

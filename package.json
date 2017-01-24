@@ -1,6 +1,6 @@
 {
-	"version": "1.0.0",
-	"name": "serilog-correlation-toolbox",
+	"version": "1.2.1",
+	"name": "digipolis-serilog-correlation-toolbox",
 	"private": true,
 	"devDependencies": {
 		"gulp": "3.9.0",

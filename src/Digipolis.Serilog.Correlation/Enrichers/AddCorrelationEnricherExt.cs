@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Digipolis.Serilog.Enrichers;
 
 namespace Digipolis.Serilog
 {

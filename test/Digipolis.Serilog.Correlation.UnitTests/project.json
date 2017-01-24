@@ -3,14 +3,14 @@
 	"description": "Serilog Correlation Toolbox unit tests.",
 	"authors": [ "digipolis.be" ],
 	"packOptions": {
-        "tags": [ "Toolbox", "Serilog", "Correlation", "Unit Tests", "Digipolis" ],
-        "repository": {
-            "type": "git",
-            "url": ""
-        },
-        "projectUrl": "",
-        "licenseUrl": ""
-    },
+		"tags": [ "Toolbox", "Serilog", "Correlation", "Unit Tests", "Digipolis", "ACPaaS" ],
+		"repository": {
+			"type": "git",
+			"url": "https://github.com/digipolisantwerp/serilog-correlation_aspnetcore.git"
+		},
+		"projectUrl": "https://github.com/digipolisantwerp/serilog-correlation_aspnetcore",
+		"licenseUrl": "https://github.com/digipolisantwerp/serilog-correlation_aspnetcore/LICENSE.txt"
+	},
 	"testRunner": "xunit",
     "dependencies": {
         "Digipolis.Serilog.Correlation": "*",

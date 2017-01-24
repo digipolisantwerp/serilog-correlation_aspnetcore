@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog.Core;
 using Serilog.Events;
 
-namespace Digipolis.Serilog
+namespace Digipolis.Serilog.Enrichers
 {
     public class CorrelationEnricher : ILogEventEnricher
     {

@@ -11,28 +11,10 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
     public class AddCorrelationEnricherExtTests
     {
         [Fact]
-        void CorrelationEnricherIsAdded()
-        {
-            var options = new SerilogExtensionsOptions();
-            options.AddCorrelationEnricher();
-            Assert.Collection(options.EnricherTypes, item => Assert.Equal(typeof(CorrelationEnricher), item));
-        }
-
-        [Fact]
-        void CorrelationEnricherIsAddedOnlyOnce()
-        {
-            var options = new SerilogExtensionsOptions();
-            options.AddCorrelationEnricher();
-            options.AddCorrelationEnricher();
-            Assert.Collection(options.EnricherTypes, item => Assert.Equal(typeof(CorrelationEnricher), item));
-        }
-
-        [Fact]
         void CorrelationEnricherIsRegisteredAsSingleton()
         {
             var services = new ServiceCollection();
             services.AddSerilogExtensions(options => {
-                options.MessageVersion = "1";
                 options.AddCorrelationEnricher();
             });
 
@@ -49,7 +31,6 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         {
             var services = new ServiceCollection();
             services.AddSerilogExtensions(options => {
-                options.MessageVersion = "1";
                 options.AddCorrelationEnricher();
             });
 

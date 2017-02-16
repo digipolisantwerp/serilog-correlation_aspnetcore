@@ -1,6 +1,9 @@
 ﻿using System;
-using System.Linq;
 using Digipolis.Serilog.Enrichers;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Serilog.Core;
 
 namespace Digipolis.Serilog
 {
@@ -8,8 +11,8 @@ namespace Digipolis.Serilog
     {
         public static SerilogExtensionsOptions AddCorrelationEnricher(this SerilogExtensionsOptions options)
         {
-            if ( !options.EnricherTypes.Contains(typeof(CorrelationEnricher)) )
-                options.AddEnricher<CorrelationEnricher>();
+            options.ApplicationServices.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            options.ApplicationServices.AddSingleton<ILogEventEnricher, CorrelationEnricher>();
             return options;
         }
     }

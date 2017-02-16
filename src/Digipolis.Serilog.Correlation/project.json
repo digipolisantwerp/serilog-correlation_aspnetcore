@@ -1,5 +1,5 @@
 {
-	"version": "1.2.1",
+	"version": "2.0.0",
 	"description": "Correlation enricher for Serilog.",
 	"authors": [ "digipolis.be" ],
 	"packOptions": {
@@ -15,7 +15,7 @@
         "NETStandard.Library": "1.6.0",
         "Serilog.Extensions.Logging": "1.3.1",
         "Digipolis.Correlation": "2.0.0",
-        "Digipolis.Serilog": "1.2.1"
+        "Digipolis.Serilog": "2.0.1"
     },
 	"frameworks": {
         "netstandard1.6": {

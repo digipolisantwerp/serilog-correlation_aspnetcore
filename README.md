@@ -27,7 +27,7 @@ To add it to a project, you add the package to the project.json :
 
 ``` json 
 "dependencies": {
-    "Digipolis.Serilog.Correlation":  "1.2.1",
+    "Digipolis.Serilog.Correlation":  "2.0.0",
  }
 ``` 
 
@@ -44,7 +44,6 @@ by calling the **AddCorrelationEnricher()** method in the Configure method of th
 services.AddCorrelation();
 
 services.AddSerilogExtensions(options => {
-    options.MessageVersion = "1";
     options.AddCorrelationEnricher();
 });
 ```  

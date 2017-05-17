@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Correlation enricher for Serilog.</Description>
+    <VersionPrefix>3.0.0</VersionPrefix>
+    <Authors>digipolis.be</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>Digipolis.Serilog.Correlation</AssemblyName>
+    <PackageId>Digipolis.Serilog.Correlation</PackageId>
+    <PackageTags>Toolbox;Serilog;Correlation;Digipolis;Logging;ACPaaS</PackageTags>
+    <PackageProjectUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore/LICENSE.txt</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore.git</RepositoryUrl>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.Extensions.Logging" Version="1.3.1" />
+    <PackageReference Include="Digipolis.Correlation" Version="3.0.0" />
+    <PackageReference Include="Digipolis.Serilog" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>

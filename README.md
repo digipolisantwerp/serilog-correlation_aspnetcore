@@ -23,11 +23,19 @@ You can find more info about the ICorrelationContext here : [https://github.com/
 ## Installation
 
 This package is hosted on Myget on the following feed : https://www.myget.org/F/digipolisantwerp/api/v3/index.json.
-To add it to a project, you add the package to the project.json :
+To add it to a project, you add the package to the csproj project file:
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="Digipolis.Serilog.Correlation" Version="3.0.0" />
+  </ItemGroup>
+``` 
+
+or if your project still works with project.json :
 
 ``` json 
 "dependencies": {
-    "Digipolis.Serilog.Correlation":  "2.0.0",
+    "Digipolis.Serilog.Correlation":  "3.0.0",
  }
 ``` 
 

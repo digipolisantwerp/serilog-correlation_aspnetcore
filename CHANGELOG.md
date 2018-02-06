@@ -1,5 +1,8 @@
 # Serilog Correlation Library
 
+## 4.0.0
+ - Upgrade dependencies for .Net Core 2.0
+
 ## 3.0.0
 
 - conversion to csproj and MSBuild.

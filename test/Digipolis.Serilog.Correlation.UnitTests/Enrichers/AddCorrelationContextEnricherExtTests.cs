@@ -22,7 +22,7 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
                                                      sd.ImplementationType == typeof(CorrelationEnricher))
                                                      .ToArray();
 
-            Assert.Equal(1, registrations.Count());
+            Assert.Single(registrations);
             Assert.Equal(ServiceLifetime.Singleton, registrations[0].Lifetime);
         }
 
@@ -37,7 +37,7 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
             var registrations = services.Where(sd => sd.ServiceType == typeof(IHttpContextAccessor))
                                                      .ToArray();
 
-            Assert.Equal(1, registrations.Count());
+            Assert.Single(registrations);
             Assert.Equal(ServiceLifetime.Singleton, registrations[0].Lifetime);
         }
     }

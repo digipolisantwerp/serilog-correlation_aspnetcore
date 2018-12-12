@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Digipolis.Correlation;
+﻿using Digipolis.Correlation;
 using Digipolis.Serilog.Enrichers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog.Events;
 using Serilog.Parsing;
+using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
@@ -100,11 +100,27 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         {
             var services = new ServiceCollection();
             services.AddOptions();
-            services.AddScoped<ICorrelationContext, CorrelationContext>();
-            services.Configure<CorrelationOptions>(opt => opt.SourceHeaderKey = "123");
+            services.Configure<CorrelationOptions>(opt => opt.CorrelationHeaderRequired = true);
+            
+            var correlationService = new Moq.Mock<ICorrelationService>();
+            correlationService.Setup(x => x.GetContext()).Returns(new CorrelationContext
+            {
+                DgpHeader = "eyJpZCI6ImEsInNvdXJjZUlkIjpiLCJzb3VyY2VOYW1lIjpjLCJpbnN0YW5jZUlkIjpkLCJpbnN0YW5jZU5hbWUiOmUsInVzZXJJZCI6ZiwiaXBBZGRyZXNzIjoiZyJ9",
+                Id = "a",
+                SourceId = "b",
+                SourceName = "c",
+                InstanceId = "d",
+                InstanceName = "e",
+                UserId = "f",
+                IpAddress = "g"
+            });
 
-            var accessor = new HttpContextAccessor();
-            accessor.HttpContext = new DefaultHttpContext();
+            services.AddSingleton(correlationService.Object);
+
+            var accessor = new HttpContextAccessor
+            {
+                HttpContext = new DefaultHttpContext()
+            };
             accessor.HttpContext.RequestServices = services.BuildServiceProvider();
 
             return accessor;

@@ -21,7 +21,13 @@ namespace Digipolis.Serilog.Enrichers
         {
             var httpContext = _accessor.HttpContext;
             var correlationService = httpContext?.RequestServices?.GetService<ICorrelationService>();
-            if ( correlationService == null ) return;
+            if (correlationService == null) return;
+
+            // Do not enrich events originating from Digipolis.Correlation toolbox to avoid recursive enrichment causing a StackOverflowException
+            LogEventPropertyValue sourceContext;
+            var isLogFromCorrelationToolbox = logEvent.Properties.TryGetValue("SourceContext", out sourceContext) && sourceContext.ToString().StartsWith("\"Digipolis.Correlation.");
+            if (isLogFromCorrelationToolbox) return;
+
             var ctx = correlationService.GetContext();
 
             var correlationIdProp = new LogEventProperty(CorrelationLoggingProperties.CorrelationId, new ScalarValue(ctx.Id ?? CorrelationLoggingProperties.NullValue));

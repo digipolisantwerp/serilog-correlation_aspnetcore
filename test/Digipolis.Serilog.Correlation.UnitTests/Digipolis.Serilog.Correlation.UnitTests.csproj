@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Serilog Correlation Toolbox unit tests.</Description>
     <Authors>digipolis.be</Authors>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Digipolis.Serilog.Correlation.UnitTests</AssemblyName>
     <PackageId>Digipolis.Serilog.Correlation.UnitTests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
@@ -12,9 +12,9 @@
     <PackageLicenseUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore/LICENSE.txt</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore.git</RepositoryUrl>
-    <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
+    <NetStandardImplicitPackageVersion>2.1.0</NetStandardImplicitPackageVersion>
     <AssetTargetFallback>$(AssetTargetFallback);dnxcore50</AssetTargetFallback>
-    <RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>3.1.0</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,6 +26,8 @@
     <PackageReference Include="System.Diagnostics.TraceSource" Version="4.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Digipolis.Serilog" Version="4.0.0" />
+    <PackageReference Include="Digipolis.Correlation" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +37,9 @@
   <!-- mark as test project -->
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Digipolis.Serilog.Correlation\Digipolis.Serilog.Correlation.csproj" />
   </ItemGroup>
 
 </Project>

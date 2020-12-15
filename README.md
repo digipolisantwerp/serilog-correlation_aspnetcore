@@ -61,9 +61,3 @@ services.AddSerilogExtensions(options => {
 The enricher adds the following fields to the Serilog LogEvent :
 
 - CorrelationId : the unique correlation id (generated at the start of a request).
-- CorrelationSourceId : unique id of the application that started the request (chain).
-- CorrelationSourceName : the name of the application that started the request (chain).
-- CorrelationInstanceId : the unique identification of the application's running instance that started the request (chain).
-- CorrelationInstanceName : the name of the application's running instance that started the request (chain).
-- CorrelationHostName : the name or IP address of the machine where the request (chain) was started.
-- CorrelationUserName : the user's name that started the request (chain).

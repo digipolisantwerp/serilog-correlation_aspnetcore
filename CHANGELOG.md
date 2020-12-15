@@ -1,5 +1,10 @@
 # Serilog Correlation Library
 
+## 4.0.2
+
+- Upgrade to .NET Standard 2.1
+- Removed all property logging except for Correlation ID as described in the logging-requirements document
+
 ## 4.0.1
 
 - Do not enrich events originating from Digipolis.Correlation toolbox to avoid recursive enrichment causing a StackOverflowException.

@@ -1,8 +1,7 @@
 # Serilog Correlation Library
 
-## 4.0.2
+## 5.0.0
 
-- Upgrade to .NET Standard 2.1
 - Removed all property logging except for Correlation ID as described in the logging-requirements document
 
 ## 4.0.1

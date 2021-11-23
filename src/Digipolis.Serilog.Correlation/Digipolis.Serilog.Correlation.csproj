@@ -9,7 +9,7 @@
     <PackageId>Digipolis.Serilog.Correlation</PackageId>
     <PackageTags>Toolbox;Serilog;Correlation;Digipolis;Logging;ACPaaS</PackageTags>
     <PackageProjectUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicense>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore/LICENSE.txt</PackageLicense>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore.git</RepositoryUrl>
     <AssetTargetFallback>$(AssetTargetFallback);dnxcore50</AssetTargetFallback>

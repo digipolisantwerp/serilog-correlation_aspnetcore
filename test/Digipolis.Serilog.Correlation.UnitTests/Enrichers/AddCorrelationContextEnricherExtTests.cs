@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
-using Digipolis.Serilog.Enrichers;
+﻿using Digipolis.Serilog.Enrichers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog.Core;
+using System.Linq;
 using Xunit;
 
 namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers

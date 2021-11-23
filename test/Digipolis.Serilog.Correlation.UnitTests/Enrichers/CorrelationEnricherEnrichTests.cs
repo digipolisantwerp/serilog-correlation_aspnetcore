@@ -15,8 +15,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationIdIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -27,8 +27,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationSourceIdIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -39,8 +39,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationSourceNameIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -51,8 +51,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationInstanceIdIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -63,8 +63,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationInstanceNameIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -75,8 +75,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationHostNameIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -87,8 +87,8 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
         [Fact]
         void CorrelationUserNameIsAdded()
         {
-            var accessor = CreateHttpContextAccessor();
-            var enricher = new CorrelationEnricher(accessor);
+            var serviceProvider = CreateServiceProvider();
+            var enricher = new CorrelationEnricher(serviceProvider);
             var logEvent = CreateLogEvent();
 
             enricher.Enrich(logEvent, null);
@@ -96,7 +96,7 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
             Assert.Contains(CorrelationLoggingProperties.CorrelationUserName, logEvent.Properties.Keys);
         }
 
-        private IHttpContextAccessor CreateHttpContextAccessor()
+        private IServiceProvider CreateServiceProvider()
         {
             var services = new ServiceCollection();
             services.AddOptions();
@@ -117,13 +117,7 @@ namespace Digipolis.Serilog.Correlation.UnitTests.Enrichers
 
             services.AddSingleton(correlationService.Object);
 
-            var accessor = new HttpContextAccessor
-            {
-                HttpContext = new DefaultHttpContext()
-            };
-            accessor.HttpContext.RequestServices = services.BuildServiceProvider();
-
-            return accessor;
+            return services.BuildServiceProvider();
         }
 
         private LogEvent CreateLogEvent()

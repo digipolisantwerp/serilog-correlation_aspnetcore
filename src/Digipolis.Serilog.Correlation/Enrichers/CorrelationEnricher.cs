@@ -1,26 +1,24 @@
-﻿using System;
-using Digipolis.Correlation;
+﻿using Digipolis.Correlation;
 using Digipolis.Serilog.Correlation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog.Core;
 using Serilog.Events;
+using System;
 
 namespace Digipolis.Serilog.Enrichers
 {
     public class CorrelationEnricher : ILogEventEnricher
     {
-        public CorrelationEnricher(IHttpContextAccessor accessor)
+        public CorrelationEnricher(IServiceProvider serviceProvider)
         {
-            _accessor = accessor;
+            _serviceProvider = serviceProvider;
         }
 
-        private readonly IHttpContextAccessor _accessor;
+        private readonly IServiceProvider _serviceProvider;
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            var httpContext = _accessor.HttpContext;
-            var correlationService = httpContext?.RequestServices?.GetService<ICorrelationService>();
+            var correlationService = _serviceProvider?.GetService<ICorrelationService>();
             if (correlationService == null) return;
 
             // Do not enrich events originating from Digipolis.Correlation toolbox to avoid recursive enrichment causing a StackOverflowException
@@ -28,6 +26,7 @@ namespace Digipolis.Serilog.Enrichers
             var isLogFromCorrelationToolbox = logEvent.Properties.TryGetValue("SourceContext", out sourceContext) && sourceContext.ToString().StartsWith("\"Digipolis.Correlation.");
             if (isLogFromCorrelationToolbox) return;
 
+            // get correlation context from HTTPContext or create a new one for current application (ex. for logging within background processes)
             var ctx = correlationService.GetContext();
 
             var correlationIdProp = new LogEventProperty(CorrelationLoggingProperties.CorrelationId, new ScalarValue(ctx.Id ?? CorrelationLoggingProperties.NullValue));

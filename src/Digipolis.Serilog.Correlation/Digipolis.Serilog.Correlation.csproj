@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <Description>Correlation enricher for Serilog.</Description>
-    <Version>4.0.1</Version>
+    <Version>5.0.0</Version>
     <Authors>digipolis.be</Authors>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Digipolis.Serilog.Correlation</AssemblyName>
     <PackageId>Digipolis.Serilog.Correlation</PackageId>
     <PackageTags>Toolbox;Serilog;Correlation;Digipolis;Logging;ACPaaS</PackageTags>
@@ -12,14 +12,13 @@
     <PackageLicenseUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore/LICENSE.txt</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/digipolisantwerp/serilog-correlation_aspnetcore.git</RepositoryUrl>
-    <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
     <AssetTargetFallback>$(AssetTargetFallback);dnxcore50</AssetTargetFallback>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.0" />
-    <PackageReference Include="Digipolis.Serilog" Version="4.0.0" />
-    <PackageReference Include="Digipolis.Correlation" Version="5.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Digipolis.Serilog" Version="5.0.0" />
+    <PackageReference Include="Digipolis.Correlation" Version="6.0.1" />
   </ItemGroup>
   
 </Project>

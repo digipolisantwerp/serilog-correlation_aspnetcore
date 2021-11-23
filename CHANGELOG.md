@@ -1,5 +1,10 @@
 # Serilog Correlation Library
 
+## 5.0.0
+
+- upgrade to net5.0
+- Require ICorrelationService via serviceProvider instead of HttpContext
+
 ## 4.0.1
 
 - Do not enrich events originating from Digipolis.Correlation toolbox to avoid recursive enrichment causing a StackOverflowException.
